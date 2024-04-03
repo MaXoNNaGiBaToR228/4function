@@ -1,13 +1,20 @@
-﻿public void RemoveBook(string title)
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Library
 {
-    Book bookToRemove = books.FirstOrDefault(book => book.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
-    if (bookToRemove != null)
+    public void RemoveBook(string title)
     {
-        books.Remove(bookToRemove);
-        Console.WriteLine("Книга успешно удалена.");
-    }
-    else
-    {
-        Console.WriteLine("Книга не найдена.");
+        Book bookToRemove = books.FirstOrDefault(book => book.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        if (bookToRemove != null)
+        {
+            books.Remove(bookToRemove);
+            Console.WriteLine("Книга успешно удалена.");
+        }
+        else
+        {
+            Console.WriteLine("Книга не найдена.");
+        }
     }
 }
