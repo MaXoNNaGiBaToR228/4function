@@ -39,4 +39,17 @@ class Book
             Console.WriteLine("Книга не найдена.");
         }
     }
+    
+    public void SearchBook(string title)
+    {
+        Book foundBook = books.FirstOrDefault(book => book.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        if (foundBook != null)
+        {
+            Console.WriteLine($"Найдена книга: {foundBook.Title} - {foundBook.Author}");
+        }
+        else
+        {
+            Console.WriteLine("Книга не найдена.");
+        }
+    }
 }
