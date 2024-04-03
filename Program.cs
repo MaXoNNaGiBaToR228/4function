@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
+class Library
+{
+
 class Book
 {
     public string Title { get; set; }
     public string Author { get; set; }
 }
 
-class Library
-{
+
     private List<Book> books = new List<Book>();
 
     public void AddBook(string title, string author)
@@ -19,5 +21,22 @@ class Library
         Console.WriteLine("Книга успешно добавлена.");
     }
 
+
+
+
+    public void RemoveBook(string title)
+    {
+        
+        
+        Book bookToRemove = books.FirstOrDefault(book => book.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+        if (bookToRemove != null)
+        {
+            books.Remove(bookToRemove);
+            Console.WriteLine("Книга успешно удалена.");
+        }
+        else
+        {
+            Console.WriteLine("Книга не найдена.");
+        }
+    }
 }
-    
